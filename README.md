@@ -265,7 +265,7 @@ seaborn>=0.11.0
 ### **Quick Start**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/flight-fare-prediction.git
+git clone https://github.com/ROYBRUNO81/flightprice.github.io.git
 cd flight-fare-prediction
 
 # Install dependencies
