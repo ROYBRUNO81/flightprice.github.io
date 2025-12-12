@@ -111,23 +111,93 @@ We evaluated **6 model configurations** across two target representations:
 
 #### **Linear Baselines**
 
-| Model | Target | R² | RMSE (BDT) | Notes |
-| --- | --- | --- | --- | --- |
-| Linear Regression | Raw | 0.570 | 53,538 | Baseline OLS |
-| Ridge (α = 1) | Raw | 0.570 | 53,538 | No improvement—features well-conditioned |
-| Linear Regression | log1p | 0.651 | 48,265 | ~10% RMSE reduction |
-| Ridge (α = 1) | log1p | 0.651 | 48,269 | Matches log OLS performance |
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Target</th>
+      <th>R²</th>
+      <th>RMSE (BDT)</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linear Regression</td>
+      <td>Raw</td>
+      <td>0.570</td>
+      <td>53,538</td>
+      <td>Baseline OLS</td>
+    </tr>
+    <tr>
+      <td>Ridge (α = 1)</td>
+      <td>Raw</td>
+      <td>0.570</td>
+      <td>53,538</td>
+      <td>No improvement — features well-conditioned</td>
+    </tr>
+    <tr>
+      <td>Linear Regression</td>
+      <td>log1p</td>
+      <td>0.651</td>
+      <td>48,265</td>
+      <td>~10% RMSE reduction</td>
+    </tr>
+    <tr>
+      <td>Ridge (α = 1)</td>
+      <td>log1p</td>
+      <td>0.651</td>
+      <td>48,269</td>
+      <td>Matches log OLS performance</td>
+    </tr>
+  </tbody>
+</table>
 
 **Insight:** Log-transform helped linear models; L2 regularization showed no benefit.
 
 #### **Tree Ensembles**
 
-| Model | Target | R² | RMSE (BDT) | Configuration |
-| --- | --- | --- | --- | --- |
-| RandomForest | Raw | 0.663 | 47,400 | 200 trees, `min_samples_leaf=2` |
-| RandomForest | log1p | 0.638 | 49,093 | Log target underperforms |
-| **HistGradientBoosting** | **Raw** | **0.677** | **46,437** | **50 iterations, lr=0.1, l2=0.5** ✅ |
-| HistGradientBoosting | log1p | 0.651 | 48,226 | Log target slightly inferior |
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Target</th>
+      <th>R²</th>
+      <th>RMSE (BDT)</th>
+      <th>Configuration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RandomForest</td>
+      <td>Raw</td>
+      <td>0.663</td>
+      <td>47,400</td>
+      <td>200 trees, min_samples_leaf = 2</td>
+    </tr>
+    <tr>
+      <td>RandomForest</td>
+      <td>log1p</td>
+      <td>0.638</td>
+      <td>49,093</td>
+      <td>Log target underperforms</td>
+    </tr>
+    <tr>
+      <td><strong>HistGradientBoosting</strong></td>
+      <td><strong>Raw</strong></td>
+      <td><strong>0.677</strong></td>
+      <td><strong>46,437</strong></td>
+      <td><strong>50 iterations, lr = 0.1, l2 = 0.5 ✅</strong></td>
+    </tr>
+    <tr>
+      <td>HistGradientBoosting</td>
+      <td>log1p</td>
+      <td>0.651</td>
+      <td>48,226</td>
+      <td>Log target slightly inferior</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
