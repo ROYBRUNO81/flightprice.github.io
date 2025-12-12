@@ -6,7 +6,7 @@
 
 > **A comprehensive machine learning analysis predicting flight fares using the Bangladesh Flight Price Dataset (57,000+ records)**
 
-[View Full Analysis](Project.ipynb) | [Dataset Source](https://www.kaggle.com/datasets/mahatiratusher/flight-price-dataset-of-bangladesh)
+[View Full Analysis](https://github.com/ROYBRUNO81/flightprice.github.io/blob/main/Project.ipynb) | [Dataset Source](https://www.kaggle.com/datasets/mahatiratusher/flight-price-dataset-of-bangladesh)
 
 ---
 
