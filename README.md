@@ -110,19 +110,21 @@ Understanding what influences airline ticket pricing is crucial for both travele
 We evaluated **6 model configurations** across two target representations:
 
 #### **Linear Baselines**
+
 | Model | Target | R² | RMSE (BDT) | Notes |
-|-------|--------|-----|------------|-------|
+| --- | --- | --- | --- | --- |
 | Linear Regression | Raw | 0.570 | 53,538 | Baseline OLS |
-| Ridge (α=1) | Raw | 0.570 | 53,538 | No improvement—features well-conditioned |
-| Linear Regression | log1p | 0.651 | 48,265 | **~10% RMSE reduction** |
-| Ridge (α=1) | log1p | 0.651 | 48,269 | Matches log OLS performance |
+| Ridge (α = 1) | Raw | 0.570 | 53,538 | No improvement—features well-conditioned |
+| Linear Regression | log1p | 0.651 | 48,265 | ~10% RMSE reduction |
+| Ridge (α = 1) | log1p | 0.651 | 48,269 | Matches log OLS performance |
 
 **Insight:** Log-transform helped linear models; L2 regularization showed no benefit.
 
 #### **Tree Ensembles**
+
 | Model | Target | R² | RMSE (BDT) | Configuration |
-|-------|--------|-----|------------|---------------|
-| RandomForest | Raw | **0.663** | 47,400 | 200 trees, min_samples_leaf=2 |
+| --- | --- | --- | --- | --- |
+| RandomForest | Raw | 0.663 | 47,400 | 200 trees, `min_samples_leaf=2` |
 | RandomForest | log1p | 0.638 | 49,093 | Log target underperforms |
 | **HistGradientBoosting** | **Raw** | **0.677** | **46,437** | **50 iterations, lr=0.1, l2=0.5** ✅ |
 | HistGradientBoosting | log1p | 0.651 | 48,226 | Log target slightly inferior |
